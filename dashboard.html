@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Dashboard</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts - Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #D9D9D9;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #F9F6F6;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      width: 50px;
+      height: auto;
+      margin-right: 15px;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .by-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #000000;
+      margin: 0;
+    }
+
+    .team-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      color: #2c2c2c;
+      margin: 0;
+    }
+
+    .dashboard-header {
+      margin-bottom: 20px;
+    }
+
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .back-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-button {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .back-text {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: #333;
+      margin: 0;
+    }
+
+    .dashboard-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: #000;
+      margin: 0;
+      opacity: 0.6;
+    }
+
+    .btn-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-add {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      background-color: white;
+      color: #2c2c2c;
+      border: 1px solid #82FF7C;
+      border-radius: 20px;
+      padding: 8px 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-add:hover {
+      background-color: #82FF7C;
+      color: white;
+    }
+
+    .btn-remove {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      background-color: white;
+      color: #2c2c2c;
+      border: 1px solid #FF7676;
+      border-radius: 20px;
+      padding: 8px 20px;
+      transition: all 0.3s;
+    }
+
+    .btn-remove:hover {
+      background-color: #FF7676;
+      color: white;
+    }
+
+    .product-table {
+      background-color: white;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .table-header {
+      display: flex;
+      padding: 15px 20px;
+      background-color: white;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .table-header div {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+    }
+
+    .table-row {
+      display: flex;
+      padding: 15px 20px;
+      background-color: #D9D9D9;
+      border-radius: 8px;
+      margin-bottom: 2px;
+    }
+
+    .table-row div {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .col-name {
+      flex: 2;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .col-type {
+      flex: 1;
+      text-align: center;
+    }
+
+    .col-quantity {
+      flex: 1;
+      text-align: right;
+      padding-right: 20px;
+    }
+    
+    .col-name-row {
+      flex: 2;
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    .col-type-row {
+      flex: 1;
+      text-align: center;
+    }
+
+    .col-quantity-row {
+      flex: 1;
+      text-align: right;
+      padding-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <img src="/src/Logo T1.png" alt="T1 Logo" class="logo">
+      <div class="brand-text">
+        <p class="by-text">by</p>
+        <p class="team-text">T1 Team</p>
+      </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard-content">
+      <div class="dashboard-header">
+        <div class="top-row">
+          <div class="back-section">
+            <button class="back-button" id="backButton">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <span class="back-text">Back</span>
+          </div>
+          <div class="btn-actions">
+            <button class="btn btn-add" id="addButton">Add</button>
+            <button class="btn btn-remove" id="removeButton">Remove</button>
+          </div>
+        </div>
+        <h1 class="dashboard-title">Your product</h1>
+      </div>
+
+      <!-- judul Tabel -->
+      <div class="product-table">
+        <div class="table-header">
+          <div class="col-name">Name Product</div>
+          <div class="col-type">Type</div>
+          <div class="col-quantity">Quantity</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Font Awesome JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script>
+    document.getElementById('backButton').addEventListener('click', function () {
+      window.location.href = 'index.html';
+    });
+    document.getElementById('addButton').addEventListener('click', function () {
+      window.location.href = 'add.html';
+    });
+    document.getElementById('removeButton').addEventListener('click', function () {
+      window.location.href = 'delete.html';
+    });
+  </script>
+
+</body>
+</html>
